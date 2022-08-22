@@ -3,6 +3,7 @@ from rake_nltk import Rake
 from nltk.corpus import stopwords
 import string
 import nltk
+import pandas as pd
 
 nltk.download('punkt')
 nltk.download("stopwords")
@@ -49,7 +50,12 @@ all_sentences = all_text.split(".")
 for sentence in all_sentences:
     for selected_keyphrase in selected_keyphrases:
         if selected_keyphrase in sentence:
+            if sentence in selected_sentences:
+                continue
             selected_sentences.append(sentence)
 
-st.write(selected_sentences)
+df = pd.DataFrame(selected_sentences, columns=["sentences"])
+st.write(df)
+
+
 
