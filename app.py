@@ -2,6 +2,9 @@ import streamlit as st
 from rake_nltk import Rake
 from nltk.corpus import stopwords
 import string
+import nltk
+
+nltk.download("stopwords")
 
 
 text_list = [
